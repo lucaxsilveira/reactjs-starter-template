@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
-const Authmiddleware = ({ component: Component, layout: Layout, pagename }) => (
+const Authmiddleware = ({ component: Component, pagename }) => (
     <Route
         render={(props) => {
             // here you can apply condition
@@ -16,11 +16,7 @@ const Authmiddleware = ({ component: Component, layout: Layout, pagename }) => (
                 );
             }
 
-            return (
-                <Layout pagename={pagename}>
-                    <Component {...props} />
-                </Layout>
-            );
+            return <Component {...props} />;
         }}
     />
 );
